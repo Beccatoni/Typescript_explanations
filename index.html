@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgb(197, 245, 229);
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+        .calculator{
+            background-color: rgb(187, 172, 172);
+            height: 20rem;
+            width: 10rem ;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            border-radius: 2rem;
+            
+        }
+        #first-input, #second-input{
+            width: 10rem;
+            height: 2rem;
+            text-align: center;
+            border-radius: 0.75rem;
+            border: none;
+
+        }
+       
+        .button{
+            background-color: rgb(223, 148, 98);
+            width: 2rem;
+            height: 1rem;
+            border-radius: 0.75rem;
+            text-align: center;
+            padding: 0.5rem;
+            font-size: x-large;
+            font-weight: 800;
+        }
+        .screen{
+            background-color: rgb(145, 180, 93);
+            width: 10rem;
+            height: 3rem;
+            padding: 0.5rem;
+            font-size: xx-large;
+            font-weight: 800;
+            color: green;
+            border-radius: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <input type="number" id="first-input" placeholder="first input"> 
+          <h1>+</h1>
+        <input type="number" id="second-input" placeholder="second input">
+        
+        <div class="button"></div>
+        <div class="screen">00.00</div>
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>
