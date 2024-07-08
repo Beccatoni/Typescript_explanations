@@ -28,7 +28,7 @@ const reviews = [
 ]
 
 const totalNumberOfReviews = (a:number)=>{
-   reviewTotalDisplay.innerHTML = a.toString()
+   reviewTotalDisplay.innerHTML = `Our total reviews are: ${a.toString()}`
 }
 
 totalNumberOfReviews(reviews.length)

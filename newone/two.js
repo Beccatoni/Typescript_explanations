@@ -24,7 +24,7 @@ var reviews = [
         date: '27-03-2021'
     }
 ];
-var totalNumberOfReviews = function () {
-    reviewTotalDisplay.textContent = (reviews.length).toString();
+var totalNumberOfReviews = function (a) {
+    reviewTotalDisplay.innerHTML = "Our total reviews are: ".concat(a.toString());
 };
-totalNumberOfReviews();
+totalNumberOfReviews(reviews.length);
