@@ -1,3 +1,4 @@
+import { totalNumberOfReviews, populateUser } from "./utils";
 // /**
 //  * Number types mini-challenge 10 10.2
 //  * write a function that will only accept numbers and attend to all TypeScript weakness flags.
@@ -139,9 +140,6 @@
 // }
 // populateUser(you.isReturning, you.userName)
 // type assignment and type inference
-const reviewTotalDisplay = document.querySelector("#reviews");
-const returningUserDisplay = document.querySelector("#returning-user");
-const userNameDisplay = document.querySelector('#user');
 let isOpen;
 // array types mini challenge
 /*
@@ -169,10 +167,6 @@ const reviews = [
         date: '27-03-2021'
     }
 ];
-export const totalNumberOfReviews = (a, reviewer, isLoyal) => {
-    let iconDisplay = isLoyal ? '⭐' : '';
-    reviewTotalDisplay.innerHTML = `Our total reviews are: ${a.toString()} | they have been reviewed by ${reviewer} ${iconDisplay}`;
-};
 totalNumberOfReviews(reviews.length, reviews[0].name, reviews[0].loyaltyUser);
 /**
  * Object Types
@@ -191,10 +185,4 @@ const you = {
     stayedAt: ['florida', 'oman-flat', 'Tokyo-bungalow']
 };
 console.log(you.firstName);
-export function populateUser(isReturning, userName) {
-    if (isReturning) {
-        returningUserDisplay.innerHTML = 'back';
-    }
-    userNameDisplay.innerHTML = userName;
-}
 populateUser(you.isReturning, you.firstName);
