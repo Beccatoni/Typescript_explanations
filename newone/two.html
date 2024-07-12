@@ -7,13 +7,14 @@
     <style>
         body{
             margin: 0;
-            padding: 0;
+            color: grey;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
         }
         #navbar{
             display: flex;
             justify-content: space-between;
             /* background-color: antiquewhite; */
-            color: grey;
+            
             font-weight: 800;
             width: 100%;
             font-size: x-large;
@@ -22,8 +23,55 @@
             box-shadow: 0 0 1rem;
         }
         #reviews {
-            font-size: xx-large;
+            font-size: large;
+            text-align: center;
         }
+        .properties{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            padding: 0.73rem;
+            width: 100%;
+            height: 18rem;
+        }
+        .card{
+            height: 13rem;
+            width: 13rem;
+            border-radius: 1rem;
+            box-shadow:0.5rem;
+            background-color: rgb(246, 236, 218) ;
+            padding: 0.5rem;
+            position: relative;
+            color: black;
+            text-align: center;
+        }
+        .card img{
+            width: 100%;
+            height: 80% ;
+        }
+        .footer{
+            background-color: pink;
+            height: 5rem;
+            padding: 1rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            bottom: 0;
+        }
+
+        #line{
+            width: 50%;
+            border-top: 2px solid rgb(241, 156, 170);
+        }
+        .container{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        /* .container button{
+            align-self: center;
+        } */
     </style>
 </head>
 <body>
@@ -33,15 +81,26 @@
                 <p>😎</p>
             </div>
             <h3 id="user-container">Welcome
-                <span id="returning-use"></span>
+                <span id="returning-user"></span>
                 <span id="user"></span>
             </h3>
         </nav>
     </header>
     <div class="container">
         <h5 id="reviews"></h5>
+        <button>Get Reviews</button>
+    </div>
+    <hr id="line">
+
+    <h1>Other Properties recommended to you:</h1>
+    <div class="properties">
+
     </div>
 
-    <script src="two.js"></script>
+    <footer class="footer">
+
+    </footer>
+
+    <script src="./three.js" type="module"></script>
 </body>
 </html>
