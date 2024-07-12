@@ -7,26 +7,28 @@
 // properties array
 const propertyContainer = document.querySelector(".properties");
 const footer = document.querySelector(".footer");
-import { totalNumberOfReviews, populateUser } from './utils.js';
-let isOpen;
+const reviewContainer = document.querySelector('.reviews');
+import { LoyaltyUser, Permissions } from './enums.js';
+import { totalNumberOfReviews, populateUser, getTopTwoReviews } from './utils.js';
+let isLoggedIn;
 // reviews
 const reviews = [
     {
         name: 'Sheia',
         stars: 5,
-        loyaltyUser: true,
+        loyaltyUser: LoyaltyUser.GOLD_USER,
         date: '01-04-2021'
     },
     {
         name: 'Andrzej',
         stars: 5,
-        loyaltyUser: true,
+        loyaltyUser: LoyaltyUser.BRONZE_USER,
         date: '28-03-2021'
     },
     {
         name: 'Omar',
         stars: 4,
-        loyaltyUser: true,
+        loyaltyUser: LoyaltyUser.SILVER_USER,
         date: '27-03-2021'
     }
 ];
@@ -34,6 +36,7 @@ const reviews = [
 const you = {
     firstName: 'Becca',
     lastName: 'Brown',
+    permissions: Permissions.ADMIN,
     isReturning: true,
     age: 35,
     stayedAt: []
@@ -48,7 +51,7 @@ const properties = [
             firstLine: 'shack 38',
             city: 'Kgl',
             code: 4545,
-            country: ''
+            country: 'Colombia'
         },
         contact: [+24397436457, 'jello@gmail.com'],
         isAvailable: true
@@ -61,7 +64,7 @@ const properties = [
             firstLine: 'Musa 38',
             city: 'Ruhengeri',
             code: 4682,
-            country: ''
+            country: 'Poland'
         },
         contact: [+2507888886343, 'treasure@gmail.com'],
         isAvailable: false
@@ -74,7 +77,7 @@ const properties = [
             firstLine: 'Gata 58',
             city: 'Ruhashi',
             code: 4545,
-            country: ''
+            country: 'Rwanda'
         },
         contact: [+24397436457484, 'bebi@gmail.com'],
         isAvailable: true
@@ -82,6 +85,16 @@ const properties = [
 ];
 totalNumberOfReviews(reviews.length, reviews[0].name, reviews[0].loyaltyUser);
 populateUser(you.isReturning, you.firstName);
+// union type
+let authorityStatus;
+isLoggedIn = true;
+function showDetails(authorityStatus, element, price) {
+    if (authorityStatus) {
+        const priceDisplay = document.createElement('div');
+        priceDisplay.innerHTML = price.toString() + '/night';
+        element.appendChild(priceDisplay);
+    }
+}
 // add the properties
 for (let i = 0; i < properties.length; i++) {
     const card = document.createElement('div');
@@ -91,10 +104,27 @@ for (let i = 0; i < properties.length; i++) {
     image.setAttribute('src', properties[i].image);
     card.appendChild(image);
     propertyContainer.appendChild(card);
+    showDetails(you.permissions, card, properties[i].price);
 }
+const container = document.querySelector('.container');
+const button = document.querySelector('button');
+//  broken code
+let count = 0;
+function addReviews(array) {
+    if (!count) {
+        count++;
+        const topTwo = getTopTwoReviews(array);
+        card.classList.add('review-card');
+        card.innerHTML = `${topTwo[i].stars} stars from ${topTwo[i].name}`;
+        reviewContainer.appendChild(card);
+    }
+    container.removeChild(button);
+}
+button === null || button === void 0 ? void 0 : button.addEventListener('click', () => {
+    addReviews(reviews);
+});
 // footer
 // use your location, current time, the current temperature of location
 let time = new Date;
-time.getHours();
-let currentLocation = ['Nyarutarama', time.getHours(), 25];
+let currentLocation = ['Nyarutarama', `${time.getHours()}:${time.getMinutes()}`, 25];
 footer.innerHTML = `${currentLocation[0]} ${currentLocation[1]} ${currentLocation[2]}°`;

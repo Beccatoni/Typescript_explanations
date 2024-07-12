@@ -52,9 +52,26 @@
         .footer{
             background-color: pink;
             height: 5rem;
-            text-align: center;
-            align-self: baseline;
+            padding: 1rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            bottom: 0;
         }
+
+        #line{
+            width: 50%;
+            border-top: 2px solid rgb(241, 156, 170);
+        }
+        .container{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        /* .container button{
+            align-self: center;
+        } */
     </style>
 </head>
 <body>
@@ -71,7 +88,9 @@
     </header>
     <div class="container">
         <h5 id="reviews"></h5>
+        <button>Get Reviews</button>
     </div>
+    <hr id="line">
 
     <h1>Other Properties recommended to you:</h1>
     <div class="properties">
